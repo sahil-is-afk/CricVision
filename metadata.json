@@ -1,0 +1,6 @@
+{
+  "name": "CricVision",
+  "description": "AI-powered cricket shot analyzer. Upload performance videos or images to get instant breakdowns of shot type, timing, ball delivery, and predicted runs using Gemini multimodal reasoning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
