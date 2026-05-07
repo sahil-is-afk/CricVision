@@ -146,13 +146,16 @@ export default function CricketAnalyzer() {
       const ai = new GoogleGenAI({ apiKey });
 
       const response = await ai.models.generateContent({
-        model: "gemini-2.5-pro",
-        contents: {
-          parts: [
-            { text: "Perform a highly detailed biomechanical and tactical analysis of this cricket shot sequence. Extract precise data on: 0. Identify the player if they are a popular international cricketer (or 'Unknown Player'), 1. The delivery (type, estimated speed, length, line), 2. The shot (type, direction, predicted runs 0, 1, 2, 3, 4, 6), 3. Player biomechanics (footwork, bat path, impact point, head position, follow-through), 4. A thorough tactical analysis, and 5. Actionable recommendations for improvement. Give a realistic quality score out of 100 based on technique." },
-            ...parts
-          ]
-        },
+        model: "gemini-1.5-flash",
+        contents: [
+          {
+            role: 'user',
+            parts: [
+              { text: "Perform a highly detailed biomechanical and tactical analysis of this cricket shot sequence. Extract precise data on: 0. Identify the player if they are a popular international cricketer (or 'Unknown Player'), 1. The delivery (type, estimated speed, length, line), 2. The shot (type, direction, predicted runs 0, 1, 2, 3, 4, 6), 3. Player biomechanics (footwork, bat path, impact point, head position, follow-through), 4. A thorough tactical analysis, and 5. Actionable recommendations for improvement. Give a realistic quality score out of 100 based on technique." },
+              ...parts
+            ]
+          }
+        ],
         config: {
           responseMimeType: "application/json",
           responseSchema: {
